@@ -1,47 +1,46 @@
-import { DrawableObject } from "./types";
-import { color } from "./color";
+import { Color, DrawableObject } from "./types";
 
-interface draw {
-    pixel<T>(
+declare const draw: {
+    pixel: <T>(
         object: DrawableObject<T>,
         x: number,
         y: number,
-        color: color,
-    ): void;
+        color: Color,
+    ) => void
 
-    line<T>(
+    line: <T>(
         object: DrawableObject<T>,
         startX: number,
         startY: number,
         stopX: number,
         stopY: number,
         thickness: number,
-        color: color,
-    ): void;
+        color: Color,
+    ) => void
 
-    rectangle<T>(
+    rectangle: <T>(
         object: DrawableObject<T>,
         xPos: number,
         yPos: number,
         width: number,
         height: number,
-        fill: color | undefined,
-        stroke: color | undefined,
+        fill: Color | undefined,
+        stroke: Color | undefined,
         strokeThickness: number | undefined,
         rotation: number | undefined,
-    ): void;
+    ) => void
 
-    circle<T>(
+    circle: <T>(
         object: DrawableObject<T>,
         centerX: number,
         centerY: number,
         radius: number,
-        fill: color | undefined,
-        stroke: color | undefined,
+        fill: Color | undefined,
+        stroke: Color | undefined,
         strokeThickness: number | undefined,
         rotation: number | undefined
-    ): void;
-    triangle<T>(
+    ) => void
+    triangle: <T>(
         object: DrawableObject<T>,
         x1: number,
         y1: number,
@@ -49,23 +48,23 @@ interface draw {
         y2: number,
         x3: number,
         y3: number,
-        fill: color | undefined,
-        stroke: color | undefined,
+        fill: Color | undefined,
+        stroke: Color | undefined,
         strokeThickness: number | undefined
-    ): void;
+    ) => void
 
-    polygon<T>(
+    polygon: <T>(
         object: DrawableObject<T>,
         corners: number[][],
-        fill: color,
-        strokeColor: color | undefined,
+        fill: Color,
+        strokeColor: Color | undefined,
         strokeWidth: number | undefined
-    ): void;
+    ) => void
 
-    floodFill<T>(
+    floodFill: <T>(
         object: DrawableObject<T>,
         x: number,
         y: number,
-        color: color
-    ): void;
+        color: Color
+    ) => void
 }
